@@ -21,7 +21,7 @@ The `controller` is the consumer. `password` and `analyzer` are the producers—
  To build each image, run the following one-liner:
 
 ```bash
-docker build -f analyze_module/Dockerfile -t analyze_module . && docker build -f password_module/Dockerfile -t password_module . && docker build -f controller_module/Dockerfile -t controller_module .
+docker build -f analyze/Dockerfile -t analyze . && docker build -f password/Dockerfile -t password . && docker build -f controller/Dockerfile -t controller .
 ```
 
 To run all containers after all the images were built, run the following command:

@@ -7,7 +7,7 @@ from typing import Any
 from aio_pika import Message
 
 import logger
-from messageBroker import RabbitMQ
+from message_broker import RabbitMQ
 
 log = logger.setup_logger(__name__)
 

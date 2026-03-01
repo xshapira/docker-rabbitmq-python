@@ -1,6 +1,6 @@
 FROM python:3.12-slim-bookworm
-COPY password_module/ /
-COPY requirements.txt messageBroker.py config.py logger.py /
+COPY analyze/ /
+COPY requirements.txt message_broker.py config.py logger.py /
 WORKDIR /
 RUN pip install -r requirements.txt
 

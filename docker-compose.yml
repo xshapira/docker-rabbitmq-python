@@ -1,45 +1,46 @@
 version: '3.3'
 services:
-  analyze_module:
-    image: analyze_module:latest
+  analyze:
+    image: analyze:latest
     env_file: .env
     volumes:
       - ./theHarvester:/theHarvester
     networks:
       - analyze-net
     depends_on:
-      - controller_module
+      - controller
     restart: on-failure
 
-  password_module:
-    image: password_module:latest
+  password:
+    image: password:latest
     env_file: .env
     volumes:
       - ./theHarvester:/theHarvester
     networks:
       - password-net
     depends_on:
-      - controller_module
+      - controller
     restart: on-failure
 
-  controller_module:
-    image: controller_module:latest
+  controller:
+    image: controller:latest
     env_file: .env
     volumes:
-      - ./controller_module_data:/data
+      - ./controller_data:/data
     expose:
       - 5672
     networks:
       - controller-net
     healthcheck:
-      test: ['CMD', 'nc', '-z', 'localhost', '5672']
+      test: [ 'CMD', 'nc', '-z', 'localhost', '5672' ]
       interval: 30s
       timeout: 10s
       retries: 5
 
 volumes:
   theHarvester:
-  controller_module_data:
+  controller_data:
+
 
 networks:
   analyze-net:

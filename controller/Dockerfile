@@ -1,7 +1,7 @@
 FROM python:3.12-slim-bookworm
 RUN mkdir /data
-COPY controller_module/ /
-COPY requirements.txt messageBroker.py config.py logger.py /
+COPY controller/ /
+COPY requirements.txt message_broker.py config.py logger.py /
 # COPY theHarvester/ /theHarvester/
 WORKDIR /
 RUN pip install -r requirements.txt
